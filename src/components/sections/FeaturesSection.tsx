@@ -197,7 +197,7 @@ const FeaturesSection = () => {
                     </ul>
 
                     {/* Image Visual */}
-                    <div className="h-32 sm:h-40 md:h-52 lg:h-64 mt-3 sm:mt-4 md:mt-0 rounded-xl sm:rounded-2xl md:rounded-3xl bg-gradient-to-br from-[#00468B]/10 to-slate-100 border border-slate-200 overflow-hidden relative flex items-center justify-center group shrink-0 will-change-transform">
+                    <div className="h-full sm:h-40 md:h-52 lg:h-64 mt-3 sm:mt-4 md:mt-0 rounded-xl sm:rounded-2xl md:rounded-3xl bg-gradient-to-br from-[#00468B]/10 to-slate-100 border border-slate-200 overflow-hidden relative flex items-center justify-center group shrink-0 will-change-transform">
                       <img
                         src={activeFeature.image}
                         alt={activeFeature.title}

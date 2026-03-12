@@ -8,9 +8,11 @@ import * as THREE from "three";
 
 const JewelryPlatform3D = () => {
   const gemRef = useRef<THREE.Mesh>(null);
+  const timer = useMemo(() => new THREE.Timer(), []);
 
-  useFrame((state) => {
-    const t = state.clock.getElapsedTime();
+  useFrame(() => {
+    timer.update();
+    const t = timer.getElapsed();
     if (gemRef.current) {
       gemRef.current.rotation.y = t * 0.1;
       gemRef.current.position.y = Math.sin(t * 1.1) * 0.025;
@@ -162,7 +164,6 @@ const HeroSection = () => {
                 
                 <JewelryPlatform3D />
                 
-                {/* <ContactShadows position={[0, -2, 0]} opacity={0.5} scale={15} blur={3} far={4} color="#00468B" /> */}
               </Canvas>
             </div>
             
