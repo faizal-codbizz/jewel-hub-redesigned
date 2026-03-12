@@ -1,6 +1,5 @@
-import React from 'react';
-import { motion, useSpring } from 'framer-motion';
-import { PackagePlus, RefreshCw, Rocket, LibraryBig, SlidersHorizontal, Bot } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { PackagePlus, RefreshCw, LibraryBig, SlidersHorizontal, Bot } from 'lucide-react';
 
 const RETAILER_BENEFITS = [
   {
@@ -31,21 +30,9 @@ const RETAILER_BENEFITS = [
 ];
 
 export function RetailerSection() {
-  const floatingY = useSpring(0, {
-    stiffness: 300,
-    damping: 30
-  });
-  
-  React.useEffect(() => {
-    const interval = setInterval(() => {
-      floatingY.set(floatingY.get() === 0 ? -8 : 0);
-    }, 2000);
-    return () => clearInterval(interval);
-  }, [floatingY]);
-
   return (
     <section className="relative py-16 sm:py-20 md:py-24 lg:py-32 bg-slate-50 overflow-hidden" id="retailer">
-      <div className="absolute inset-0 z-0 pointer-events-none will-change-transform">
+      <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute top-0 right-0 w-[50rem] h-[50rem] bg-[#00468B]/5 rounded-full blur-[100px] opacity-100 translate-x-1/3 -translate-y-1/3" />
         <div className="absolute bottom-0 left-0 w-[40rem] h-[40rem] bg-amber-100/30 rounded-full blur-[100px] opacity-100 -translate-x-1/2 translate-y-1/2" />
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
@@ -59,16 +46,16 @@ export function RetailerSection() {
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-4 flex flex-col space-y-8 w-full order-2 lg:order-1 will-change-transform"
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-4 flex flex-col space-y-8 w-full order-2 lg:order-1"
           >
             <div className="text-center lg:text-left mt-8 lg:mt-0">              
               <motion.h2 
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                className="text-4xl sm:text-5xl lg:text-5xl font-bold text-slate-900 leading-tight mb-6 will-change-transform"
+                transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                className="text-4xl sm:text-5xl lg:text-5xl font-bold text-slate-900 leading-tight mb-6"
               >
                 Your Online Jewellery Store - <br className="hidden lg:block" />
                 <span className="text-[#00468B]">Ready in Minutes</span>
@@ -78,7 +65,7 @@ export function RetailerSection() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               >
                 <p className="text-xl text-slate-700 leading-relaxed font-medium">
                   No developers. No inventory. No hassle.
@@ -96,10 +83,10 @@ export function RetailerSection() {
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.6, delay: 0.6 + index * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                  className="flex items-start group will-change-transform"
+                  transition={{ duration: 0.5, delay: 0.3 + index * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                  className="flex items-start group"
                 >
-                  <div className="flex-shrink-0 mt-1 transition-transform group-hover:scale-110 duration-200 will-change-transform">
+                  <div className="flex-shrink-0 mt-1 transition-transform group-hover:scale-110 duration-200">
                     <div className="w-12 h-12 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center group-hover:border-[#00468B]/30 group-hover:shadow-md transition-all duration-200">
                       {benefit.icon}
                     </div>
@@ -118,7 +105,7 @@ export function RetailerSection() {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-8 relative w-full order-1 lg:order-2 mt-4 sm:mt-0"
           >
             {/* Soft Background Glow */}
@@ -157,44 +144,7 @@ export function RetailerSection() {
                     <span className="text-slate-500 text-sm animate-pulse tracking-wide font-medium">Loading store preview...</span>
                   </div>
                 </div>
-                
-                {/* Ready in 10 Minutes Badge */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20, scale: 0.9 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.8, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                  className="absolute bottom-6 right-6 z-20"
-                >
-                  <motion.div
-                    // style={{ y: floatingY }}
-                    className="bg-[#00468B] backdrop-blur-xl px-5 py-2.5 rounded-full shadow-2xl border border-white/20 group hover:bg-[#00468B] transition-all duration-500"
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className="relative">
-                        <div className="w-3 h-3 bg-white rounded-full"></div>
-                        <motion.div 
-                          animate={{ scale: [1, 1.4, 1], opacity: [0.7, 0, 0.7] }}
-                          transition={{ 
-                            duration: 2, 
-                            repeat: Infinity,
-                            ease: "easeInOut"
-                          }}
-                          className="absolute inset-0 w-3 h-3 bg-white rounded-full will-change-transform"
-                        />
-                      </div>
-                      <div className="text-center">
-                        <p className="text-white text-xs leading-tight">
-                          Websites like this can be
-                        </p>
-                        <p className="text-white text-sm font-medium leading-tight">
-                          ready in 10 minutes
-                        </p>
-                      </div>
-                    </div>
-                  </motion.div>
-                </motion.div>
-                
+
                 {/* Landscape iFrame View */}
                 <iframe 
                   src="https://www.finediamondsrus.com/" 
@@ -204,6 +154,40 @@ export function RetailerSection() {
                   sandbox="allow-scripts allow-same-origin allow-popups"
                 />
               </div>
+
+              {/* Ready in 10 Minutes Badge (moved outside iframe container) */}
+              <motion.div
+                initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.7, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                className="absolute bottom-6 left-1/2 md:right-6 md:left-auto -translate-x-1/2 md:translate-x-0 z-20"
+              >
+                <motion.div
+                  animate={{ y: [0, -8, 0] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  className="bg-[#00468B] px-4 sm:px-5 py-2 sm:py-2.5 rounded-full shadow-2xl border border-white/20 group hover:bg-[#00468B] transition-all duration-500"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="relative">
+                      <div className="w-3 h-3 bg-white rounded-full"></div>
+                      <motion.div 
+                        animate={{ scale: [1, 1.4, 1], opacity: [0.7, 0, 0.7] }}
+                        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                        className="absolute inset-0 w-3 h-3 bg-white rounded-full"
+                      />
+                    </div>
+                    <div className="text-center">
+                      <p className="text-white text-xs leading-tight">
+                        Websites like this can be
+                      </p>
+                      <p className="text-white text-sm font-medium leading-tight">
+                        ready in 10 minutes
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              </motion.div>
             </div>
             
           </motion.div>

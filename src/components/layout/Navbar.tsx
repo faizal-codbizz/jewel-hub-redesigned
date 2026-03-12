@@ -31,9 +31,9 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <div className="flex items-center gap-2 cursor-pointer group" onClick={() => window.location.href = '/'}>
+          <a className="flex items-center gap-2 cursor-pointer group" href="#">
             <img src={logo} alt="Jewelmounts Logo" className="h-16" />
-          </div>
+          </a>
 
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link, i) => (

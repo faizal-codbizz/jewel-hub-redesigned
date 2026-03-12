@@ -35,7 +35,7 @@ const Word = ({ children, progress, wordRange, isBrand, isLight }: WordProps) =>
       {/* Ghost text for layout stability */}
       <span className="opacity-[0.08] select-none" aria-hidden="true">{children}</span>
       <motion.span 
-        className="absolute inset-0 will-change-transform"
+        className="absolute inset-0"
         style={{ 
           opacity: smoothOpacity
         }}
@@ -75,7 +75,7 @@ const WhatIsSection = () => {
         className="py-20 sm:py-24 md:py-32 lg:py-40 bg-white flex items-center min-h-[50vh] sm:min-h-[60vh] relative overflow-hidden"
       >
         {/* Background Image */}
-        <div className="absolute inset-0 pointer-events-none will-change-transform">
+        <div className="absolute inset-0 pointer-events-none">
           <img 
             src={bgImage} 
             alt="Background" 
@@ -86,8 +86,8 @@ const WhatIsSection = () => {
           <div className="absolute inset-0 bg-gradient-to-br from-[#00468B]/40 via-transparent to-[#00468B]/40" />
         </div>
 
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 will-change-transform">
-          <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-[1.4] sm:leading-[1.3] lg:leading-[1.5] flex flex-wrap justify-center will-change-transform">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-[1.4] sm:leading-[1.3] lg:leading-[1.5] flex flex-wrap justify-center">
             {words.map((word: string, i: number) => {
               const isBrand = word === "Jewelmounts";
               const isLight = i >= 16; // The words from "without..." onwards

@@ -3,7 +3,6 @@ import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-
 import {
   Package, MonitorSmartphone,
   TrendingUp, MessageSquare, CheckCircle2,
-  PencilRuler,
   Truck,
   Tag,
   DraftingCompass,
@@ -35,27 +34,22 @@ const FEATURES = [
 const cardVariants = {
   enter: (dir: number) => ({
     y: dir > 0 ? "100%" : "-100%",
-    scale: 0.95,
     opacity: 0,
   }),
   center: {
     y: 0,
-    scale: 1,
     opacity: 1,
     transition: {
-      y: { type: "spring" as const, stiffness: 300, damping: 28 },
-      scale: { duration: 0.4, ease: [0.22, 1, 0.36, 1] as const },
-      opacity: { duration: 0.25 },
+      y: { type: "spring" as const, stiffness: 400, damping: 35 },
+      opacity: { duration: 0.2 },
     },
   },
   exit: (dir: number) => ({
     y: dir > 0 ? "-30%" : "30%",
-    scale: 0.9,
     opacity: 0,
     transition: {
-      y: { type: "spring" as const, stiffness: 300, damping: 28 },
-      scale: { duration: 0.35, ease: [0.55, 0, 0.45, 1] as const },
-      opacity: { duration: 0.2 },
+      y: { type: "spring" as const, stiffness: 400, damping: 35 },
+      opacity: { duration: 0.15 },
     },
   }),
 };
@@ -98,16 +92,16 @@ const FeaturesSection = () => {
       id="features"
       style={{ height: `${FEATURES.length * 45}vh` }}
     >
-      <div className="sticky top-0 lg:-top-10 h-screen lg:h-[110vh] flex flex-col justify-center overflow-hidden py-6 sm:py-8 lg:py-12 will-change-transform">
+      <div className="sticky top-0 lg:-top-10 h-screen lg:h-[110vh] flex flex-col justify-center overflow-hidden py-6 sm:py-8 lg:py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           {/* Header */}
-          <div className="text-center mb-6 sm:mb-8 md:mb-12 lg:mb-20 shrink-0 will-change-transform">
-            <motion.h2
+          <div className="text-center mb-6 sm:mb-8 md:mb-12 lg:mb-20 shrink-0">
+            <motion.h2 
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-[#00468B] mb-2 sm:mb-4 md:mb-6 tracking-tight will-change-transform"
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-[#00468B] mb-2 sm:mb-4 md:mb-6 tracking-tight"
             >
               Features Built for Jewellers
             </motion.h2>
@@ -115,8 +109,8 @@ const FeaturesSection = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ delay: 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="text-base sm:text-lg md:text-xl text-slate-600 max-w-2xl mx-auto font-light will-change-transform"
+              transition={{ delay: 0.1, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="text-base sm:text-lg md:text-xl text-slate-600 max-w-2xl mx-auto font-light"
             >
               Powerful tools to manage every aspect of your jewellery business.
             </motion.p>
@@ -132,7 +126,7 @@ const FeaturesSection = () => {
                     <button
                       key={index}
                       onClick={() => handleNavClick(index)}
-                      className={`relative cursor-pointer text-left py-3 md:py-4 px-4 transition-all duration-200 rounded-xl group will-change-transform ${
+                      className={`relative cursor-pointer text-left py-3 md:py-4 px-4 transition-all duration-200 rounded-xl group ${
                         isActive ? "bg-white shadow-lg shadow-[#00468B]/5" : "hover:bg-slate-100"
                       }`}
                     >
@@ -144,7 +138,7 @@ const FeaturesSection = () => {
                         />
                       )}
                       <div className="flex items-center gap-4">
-                        <div className={`shrink-0 w-10 h-10 rounded-lg flex items-center justify-center transition-colors duration-200 will-change-transform ${
+                        <div className={`shrink-0 w-10 h-10 rounded-lg flex items-center justify-center transition-colors duration-200 ${
                           isActive ? "bg-[#00468B] text-white" : "bg-slate-200 text-slate-500 group-hover:bg-[#00468B]/10 group-hover:text-[#00468B]"
                         }`}>
                           <feature.icon className={`w-5 h-5 ${isActive && index === 0 ? 'brightness-0 invert' : ''}`} />
@@ -163,7 +157,7 @@ const FeaturesSection = () => {
 
 
             {/* Right Dynamic Content (Cards & Images) */}
-            <div className="lg:w-2/3 relative h-[600px] sm:h-[450px] md:h-[500px] lg:h-[650px] w-full overflow-hidden rounded-xl sm:rounded-2xl md:rounded-[2.5rem] will-change-transform">
+            <div className="lg:w-2/3 relative h-[600px] sm:h-[450px] md:h-[500px] lg:h-[650px] w-full overflow-hidden rounded-xl sm:rounded-2xl md:rounded-[2.5rem]">
               <AnimatePresence initial={false} custom={direction} mode="popLayout">
                 <motion.div
                   key={activeIndex}
@@ -172,24 +166,24 @@ const FeaturesSection = () => {
                   initial="enter"
                   animate="center"
                   exit="exit"
-                  className="bg-white absolute inset-0 rounded-xl sm:rounded-2xl md:rounded-[2.5rem] p-4 sm:p-6 md:p-10 lg:p-12 border border-slate-100 shadow-xl sm:shadow-2xl shadow-[#00468B]/10 flex flex-col justify-center overflow-hidden will-change-transform"
+                  className="bg-white absolute inset-0 rounded-xl sm:rounded-2xl md:rounded-[2.5rem] p-4 sm:p-6 md:p-10 lg:p-12 border border-slate-100 shadow-xl sm:shadow-2xl shadow-[#00468B]/10 flex flex-col justify-center overflow-hidden"
                   style={{ transformOrigin: "center bottom" }}
                 >
-                  <div className="lg:hidden w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl sm:rounded-2xl bg-[#00468B]/5 flex items-center justify-center mb-3 sm:mb-4 shrink-0 will-change-transform">
+                  <div className="lg:hidden w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl sm:rounded-2xl bg-[#00468B]/5 flex items-center justify-center mb-3 sm:mb-4 shrink-0">
                     <activeFeature.icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-[#00468B]" />
                   </div>
 
-                  <h3 className="text-lg sm:text-xl md:text-3xl lg:text-4xl font-bold text-[#00468B] mb-2 sm:mb-3 md:mb-4 will-change-transform">
+                  <h3 className="text-lg sm:text-xl md:text-3xl lg:text-4xl font-bold text-[#00468B] mb-2 sm:mb-3 md:mb-4">
                     {activeFeature.title}
                   </h3>
-                  <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-600 mb-4 sm:mb-6 md:mb-8 font-light leading-relaxed will-change-transform">
+                  <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-600 mb-4 sm:mb-6 md:mb-8 font-light leading-relaxed">
                     {activeFeature.description}
                   </p>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 items-center flex-1">
                     <ul className="space-y-2 sm:space-y-3 md:space-y-4">
                       {activeFeature.bullets.map((bullet, i) => (
-                        <li key={i} className={`flex items-start gap-2 sm:gap-3 md:gap-4 text-xs sm:text-sm md:text-base text-slate-700 font-medium tracking-tight will-change-transform ${i >= 3 ? 'hidden md:flex' : ''}`}>
+                        <li key={i} className={`flex items-start gap-2 sm:gap-3 md:gap-4 text-xs sm:text-sm md:text-base text-slate-700 font-medium tracking-tight ${i >= 3 ? 'hidden md:flex' : ''}`}>
                           <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-[#00468B] shrink-0 mt-0.5" />
                           <span>{bullet}</span>
                         </li>
@@ -197,11 +191,11 @@ const FeaturesSection = () => {
                     </ul>
 
                     {/* Image Visual */}
-                    <div className="h-full sm:h-40 md:h-52 lg:h-64 mt-3 sm:mt-4 md:mt-0 rounded-xl sm:rounded-2xl md:rounded-3xl bg-gradient-to-br from-[#00468B]/10 to-slate-100 border border-slate-200 overflow-hidden relative flex items-center justify-center group shrink-0 will-change-transform">
+                    <div className="h-full sm:h-40 md:h-52 lg:h-64 mt-3 sm:mt-4 md:mt-0 rounded-xl sm:rounded-2xl md:rounded-3xl bg-gradient-to-br from-[#00468B]/10 to-slate-100 border border-slate-200 overflow-hidden relative flex items-center justify-center group shrink-0">
                       <img
                         src={activeFeature.image}
                         alt={activeFeature.title}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 will-change-transform"
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                         loading="lazy"
                         decoding="async"
                       />
@@ -214,7 +208,7 @@ const FeaturesSection = () => {
           </div>
 
           {/* Mobile indicator line */}
-          <div className="lg:hidden mt-4 sm:mt-6 md:mt-8 flex justify-center gap-1.5 sm:gap-2 will-change-transform">
+          <div className="lg:hidden mt-4 sm:mt-6 md:mt-8 flex justify-center gap-1.5 sm:gap-2">
             {FEATURES.map((_, idx) => (
               <div
                 key={idx}

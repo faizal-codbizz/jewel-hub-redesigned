@@ -1,5 +1,5 @@
-import { RefreshCw, Store, ArrowRight, CheckCircle2, Gem, TrendingUp, MonitorSmartphone } from "lucide-react";
 import { motion } from "framer-motion";
+import { RefreshCw, Store, ArrowRight, CheckCircle2, Gem, TrendingUp, MonitorSmartphone } from "lucide-react";
 import ringImage from "/images/ring.webp";
 import earringsImage from "/images/earrings.webp";
 import necklaceImage from "/images/necklace.webp";
@@ -29,7 +29,7 @@ const SyncSection = () => {
   return (
     <section className="py-16 sm:py-20 md:py-32 bg-white relative overflow-hidden" id="platform">
       {/* Subtle background elements */}
-      <div className="absolute inset-0 pointer-events-none will-change-transform">
+      <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#00468B]/[0.03] rounded-full blur-[100px]" />
         <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-amber-100/30 rounded-full blur-[80px]" />
       </div>
@@ -40,23 +40,23 @@ const SyncSection = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center mb-12 sm:mb-16 md:mb-24 will-change-transform"
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mb-12 sm:mb-16 md:mb-24"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ delay: 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#00468B]/5 border border-[#00468B]/10 text-sm font-medium text-[#00468B] mb-6 will-change-transform"
+            transition={{ delay: 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#00468B]/5 border border-[#00468B]/10 text-sm font-medium text-[#00468B] mb-6"
           >
             <RefreshCw className="w-4 h-4" />
             Seamless Integration
           </motion.div>
-          <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-[#00468B] mb-4 sm:mb-6 tracking-tight will-change-transform">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-[#00468B] mb-4 sm:mb-6 tracking-tight">
             Your Store, Always in Sync
           </h2>
-          <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto font-light leading-relaxed will-change-transform">
+          <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto font-light leading-relaxed">
             Connect once. Sell forever. Jewelmounts keeps your inventory and prices updated automatically.
           </p>
         </motion.div>
@@ -70,16 +70,16 @@ const SyncSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="relative order-2 lg:order-1 will-change-transform"
+            className="relative order-2 lg:order-1"
           >
             <div className="relative">
               {/* Connection Line */}
-              <div className="absolute left-1/2 top-[140px] bottom-[140px] w-px bg-gradient-to-b from-[#00468B] via-[#00468B]/50 to-[#00468B] -translate-x-1/2 hidden md:block will-change-transform">
+              <div className="absolute left-1/2 top-[140px] bottom-[140px] w-px bg-gradient-to-b from-[#00468B] via-[#00468B]/50 to-[#00468B] -translate-x-1/2 hidden md:block">
                 {/* Animated dot */}
                 <motion.div
                   animate={{ y: [0, 180, 0] }}
                   transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-[#00468B] shadow-lg shadow-[#00468B]/30 will-change-transform"
+                  className="absolute left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-[#00468B] shadow-lg shadow-[#00468B]/30"
                 />
               </div>
 
@@ -88,8 +88,8 @@ const SyncSection = () => {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.2, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                className="relative bg-gradient-to-br from-[#00468B] to-[#003366] rounded-[1.5rem] p-6 md:p-8 mb-6 md:mb-8 overflow-hidden will-change-transform"
+                transition={{ delay: 0.15, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                className="relative bg-gradient-to-br from-[#00468B] to-[#003366] rounded-[1.5rem] p-6 md:p-8 mb-6 md:mb-8 overflow-hidden"
               >
                 <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
                 <div className="relative z-10">
@@ -111,10 +111,10 @@ const SyncSection = () => {
                         initial={{ opacity: 0, scale: 0.8 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        transition={{ delay: 0.3 + i * 0.1 }}
+                        transition={{ delay: 0.2 + i * 0.1 }}
                         className="aspect-square rounded-xl bg-white/10 backdrop-blur-sm border border-white/10 overflow-hidden"
                       >
-                        <img src={img} alt="Product" className="w-full h-full object-cover" />
+                        <img src={img} alt="Product" className="w-full h-full object-cover" loading="lazy" />
                       </motion.div>
                     ))}
                   </div>
@@ -141,7 +141,7 @@ const SyncSection = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.4 }}
+                transition={{ delay: 0.3, duration: 0.6 }}
                 className="relative bg-white rounded-[1.5rem] border border-slate-200 p-6 md:p-8 shadow-[0_20px_50px_rgba(0,70,139,0.08)]"
               >
                 <div className="flex items-center gap-3 mb-6">
@@ -162,15 +162,15 @@ const SyncSection = () => {
                       initial={{ opacity: 0, scale: 0.8 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
-                      transition={{ delay: 0.5 + index * 0.1 }}
+                      transition={{ delay: 0.4 + index * 0.1 }}
                       className="aspect-square rounded-xl border border-slate-200 relative overflow-hidden group"
                     >
-                      <img src={img} alt="Product" className="w-full h-full object-cover" />
+                      <img src={img} alt="Product" className="w-full h-full object-cover" loading="lazy" />
                       <motion.div
                         initial={{ x: "-100%" }}
                         whileInView={{ x: "200%" }}
                         viewport={{ once: true }}
-                        transition={{ delay: 0.8 + index * 0.15, duration: 0.6 }}
+                        transition={{ delay: 0.6 + index * 0.15, duration: 0.6 }}
                         className="absolute inset-0 bg-gradient-to-r from-transparent via-white/60 to-transparent"
                       />
                     </motion.div>

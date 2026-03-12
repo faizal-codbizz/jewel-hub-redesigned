@@ -4,36 +4,18 @@ import { ArrowRight } from "lucide-react";
 const CTASection = () => {
   return ( 
     <section className="py-16 sm:py-20 md:py-32 bg-gradient-to-b from-white via-white to-slate-50 border-t border-slate-100 relative overflow-hidden" id="demo">
-      {/* Background animated elements */}
+      {/* Background elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <motion.div
-          className="absolute w-[500px] h-[500px] rounded-full blur-[80px] will-change-transform"
-          style={{
-            background: "radial-gradient(circle, rgba(0, 70, 139, 0.2) 0%, transparent 70%)",
-          }}
-          animate={{
-            x: [0, 100, 0],
-            y: [0, 50, 0],
-          }}
-          transition={{
-            duration: 20,
-            ease: "easeInOut",
-            repeat: Infinity,
-          }}
-        />
-        <motion.div
-          className="absolute w-[400px] h-[400px] rounded-full blur-[70px] bottom-0 right-0 will-change-transform"
+        <div
+          className="absolute w-[500px] h-[500px] rounded-full blur-[80px] top-0 left-0"
           style={{
             background: "radial-gradient(circle, rgba(0, 70, 139, 0.15) 0%, transparent 70%)",
           }}
-          animate={{
-            x: [0, -50, 0],
-            y: [0, -50, 0],
-          }}
-          transition={{
-            duration: 25,
-            ease: "easeInOut",
-            repeat: Infinity,
+        />
+        <div
+          className="absolute w-[400px] h-[400px] rounded-full blur-[70px] bottom-0 right-0"
+          style={{
+            background: "radial-gradient(circle, rgba(0, 70, 139, 0.1) 0%, transparent 70%)",
           }}
         />
       </div>
@@ -43,7 +25,7 @@ const CTASection = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
           <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-[#00468B] mb-4 sm:mb-6 tracking-tight">
             Ready to Transform Your Jewellery Business?
@@ -57,8 +39,8 @@ const CTASection = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col sm:flex-row justify-center gap-6 items-center"
+          transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col px-10 sm:px-0 sm:flex-row justify-center gap-6 items-center"
         >
           <PrimaryCTA />
           <SecondaryCTA />
@@ -70,20 +52,23 @@ const CTASection = () => {
 
 const PrimaryCTA = () => {
   return (
-    <button
-      className="group transform-gpu will-change-transform transition-transform duration-200 ease-out hover:scale-105 active:scale-95 bg-gradient-to-br from-[#00468B] to-[#003366] text-white px-8 md:px-10 py-4 rounded-xl text-lg font-semibold shadow-lg shadow-[#00468B]/20 hover:shadow-xl flex items-center gap-2"
+    <a
+      href="https://calendly.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="w-full sm:w-auto group transition-transform duration-200 ease-out hover:scale-102 active:scale-95 bg-gradient-to-br from-[#00468B] to-[#003366] text-white px-8 md:px-10 py-4 rounded-xl text-lg font-semibold shadow-lg shadow-[#00468B]/20 hover:shadow-xl flex items-center gap-2 justify-center"
       aria-label="Request a Demo"
     >
       <span>Request a Demo</span>
       <ArrowRight className="w-5 h-5 transform transition-transform duration-200 group-hover:translate-x-1" />
-    </button>
+    </a>
   );
 };
 
 const SecondaryCTA = () => {
   return (
     <button
-      className="group transform-gpu will-change-transform transition-transform duration-200 ease-out hover:scale-102 active:scale-95 bg-white text-[#00468B] border-2 border-slate-200 px-8 md:px-10 py-4 rounded-xl text-lg font-semibold hover:border-[#00468B] flex items-center gap-2"
+      className="w-full sm:w-auto group transition-transform duration-200 ease-out hover:scale-102 active:scale-95 bg-white text-[#00468B] border-2 border-slate-200 px-8 md:px-10 py-4 rounded-xl text-lg font-semibold hover:border-[#00468B] flex items-center gap-2 justify-center"
       aria-label="Explore the Platform"
       onClick={() => window.location.href = "https://www.jewelmounts.com/"}
     >
