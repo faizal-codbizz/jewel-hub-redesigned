@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion, useSpring } from 'framer-motion';
 import { PackagePlus, RefreshCw, Rocket, LibraryBig, SlidersHorizontal, Bot } from 'lucide-react';
 
 const RETAILER_BENEFITS = [
@@ -31,8 +31,17 @@ const RETAILER_BENEFITS = [
 ];
 
 export function RetailerSection() {
-  const containerRef = React.useRef(null);
-  const isInView = useInView(containerRef, { once: true, margin: "-80px" });
+  const floatingY = useSpring(0, {
+    stiffness: 300,
+    damping: 30
+  });
+  
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      floatingY.set(floatingY.get() === 0 ? -8 : 0);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, [floatingY]);
 
   return (
     <section className="relative py-16 sm:py-20 md:py-24 lg:py-32 bg-slate-50 overflow-hidden" id="retailer">
@@ -42,21 +51,23 @@ export function RetailerSection() {
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
       </div>
 
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10" ref={containerRef}>
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16 items-center">
           
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-4 flex flex-col space-y-8 w-full order-2 lg:order-1 will-change-transform"
           >
             <div className="text-center lg:text-left mt-8 lg:mt-0">              
               <motion.h2 
                 initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
                 className="text-4xl sm:text-5xl lg:text-5xl font-bold text-slate-900 leading-tight mb-6 will-change-transform"
               >
                 Your Online Jewellery Store - <br className="hidden lg:block" />
@@ -65,8 +76,9 @@ export function RetailerSection() {
               
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
               >
                 <p className="text-xl text-slate-700 leading-relaxed font-medium">
                   No developers. No inventory. No hassle.
@@ -82,8 +94,9 @@ export function RetailerSection() {
                 <motion.li
                   key={index}
                   initial={{ opacity: 0, x: -20 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-                  transition={{ duration: 0.5, delay: 0.4 + index * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.6, delay: 0.6 + index * 0.08, ease: [0.16, 1, 0.3, 1] }}
                   className="flex items-start group will-change-transform"
                 >
                   <div className="flex-shrink-0 mt-1 transition-transform group-hover:scale-110 duration-200 will-change-transform">
@@ -103,60 +116,13 @@ export function RetailerSection() {
           {/* Right Preview */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-8 relative w-full order-1 lg:order-2 mt-4 sm:mt-0"
           >
             {/* Soft Background Glow */}
             <div className="absolute -inset-6 bg-gradient-to-tr from-[#00468B]/10 via-transparent to-blue-200/20 blur-2xl rounded-[2.5rem] -z-10 pointer-events-none" />
-            
-            {/* Creative Hovering Badge using Brand Colors */}
-            <motion.div 
-              style={{ y: 20, opacity: 0 }}
-              animate={isInView ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
-              transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
-              className="absolute -top-6 right-2 sm:-top-5 sm:-right-5 lg:-top-8 lg:-right-8 z-30"
-            >
-              <motion.div
-                animate={{ 
-                  y: [0, -8, 0]
-                }}
-                transition={{ 
-                  duration: 4, 
-                  repeat: Infinity, 
-                  ease: "easeInOut" 
-                }}
-                className="bg-white/95 backdrop-blur-xl px-4 py-2.5 sm:px-5 sm:py-3 lg:px-6 lg:py-4 rounded-xl sm:rounded-2xl shadow-[0_15px_35px_-5px_rgba(0,70,139,0.15)] border border-slate-100/50 flex items-center gap-3 sm:gap-4 group hover:shadow-[0_20px_40px_-5px_rgba(0,70,139,0.2)] transition-all duration-500"
-              >
-                <div className="relative flex-shrink-0">
-                  <div className="absolute inset-0 bg-[#00468B] blur-md opacity-20 group-hover:opacity-40 transition-opacity rounded-full"></div>
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-[#00468B] to-[#003360] rounded-full flex items-center justify-center relative border-2 border-white shadow-inner">
-                    <Rocket className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-white" />
-                  </div>
-                  {/* Status Indicator */}
-                  <motion.div 
-                    animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                    className="absolute -top-0.5 -right-0.5 sm:-top-1 sm:-right-1 w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 bg-emerald-500 border-2 border-white rounded-full z-10"
-                  />
-                </div>
-                
-                <div className="flex flex-col">
-                  <span className="text-[9px] sm:text-[10px] lg:text-xs font-bold uppercase tracking-wider text-slate-400 mb-0.5">Setup time</span>
-                  <span className="text-xs sm:text-sm lg:text-base font-extrabold text-slate-800 leading-tight">
-                    Ready in <span className="text-[#00468B]">10 Mins</span>
-                  </span>
-                  <div className="h-1 w-full bg-slate-100 rounded-full mt-1 sm:mt-1.5 overflow-hidden">
-                    <motion.div 
-                      initial={{ width: 0 }}
-                      animate={{ width: "100%" }}
-                      transition={{ duration: 1.5, delay: 1, ease: "easeOut" }}
-                      className="h-full bg-gradient-to-r from-[#00468B] to-emerald-400 rounded-full"
-                    />
-                  </div>
-                </div>
-              </motion.div>
-            </motion.div>
             
             {/* Light Mode macOS Browser Mockup */}
             <div className="bg-white rounded-[1.5rem] overflow-hidden border border-slate-200/60 flex flex-col h-[650px] sm:h-[500px] lg:h-[750px] w-full relative group shadow-2xl shadow-[#00468B]/5">
@@ -183,7 +149,7 @@ export function RetailerSection() {
               </div>
 
               {/* Secure Iframe */}
-              <div className="relative flex-1 bg-white overflow-hidden ">
+              <div className="relative flex-1 bg-white overflow-hidden">
                 {/* Fallback Loader underneath the iframe */}
                 <div className="absolute inset-0 bg-slate-50 flex items-center justify-center -z-10">
                   <div className="flex flex-col items-center gap-4">
@@ -191,6 +157,43 @@ export function RetailerSection() {
                     <span className="text-slate-500 text-sm animate-pulse tracking-wide font-medium">Loading store preview...</span>
                   </div>
                 </div>
+                
+                {/* Ready in 10 Minutes Badge */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.8, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                  className="absolute bottom-6 right-6 z-20"
+                >
+                  <motion.div
+                    // style={{ y: floatingY }}
+                    className="bg-[#00468B] backdrop-blur-xl px-5 py-2.5 rounded-full shadow-2xl border border-white/20 group hover:bg-[#00468B] transition-all duration-500"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="relative">
+                        <div className="w-3 h-3 bg-white rounded-full"></div>
+                        <motion.div 
+                          animate={{ scale: [1, 1.4, 1], opacity: [0.7, 0, 0.7] }}
+                          transition={{ 
+                            duration: 2, 
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                          }}
+                          className="absolute inset-0 w-3 h-3 bg-white rounded-full will-change-transform"
+                        />
+                      </div>
+                      <div className="text-center">
+                        <p className="text-white text-xs leading-tight">
+                          Websites like this can be
+                        </p>
+                        <p className="text-white text-sm font-medium leading-tight">
+                          ready in 10 minutes
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+                </motion.div>
                 
                 {/* Landscape iFrame View */}
                 <iframe 

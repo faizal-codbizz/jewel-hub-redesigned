@@ -217,7 +217,7 @@ const SyncSection = () => {
                         <h3 className="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-[#00468B] transition-colors duration-300">
                           {feature.title}
                         </h3>
-                        <span className="text-xs font-medium text-[#00468B] bg-[#00468B]/5 px-2.5 py-1 rounded-full">
+                        <span className="text-xs text-nowrap font-medium text-[#00468B] bg-[#00468B]/5 px-2.5 py-1 rounded-full">
                           {feature.highlight}
                         </span>
                       </div>

@@ -18,9 +18,10 @@ import manufacturingCustomizationImage from "/images/manufacturing-customization
 import livePricingImage from "/images/live-gold-diamond-pricing.webp"
 import continuousUpdatesImage from "/images/continuous-order-updates.webp"
 import mobileWebImage from "/images/mobile-web.webp"
+import customIcon from "/images/custom.svg"
 
 const FEATURES = [
-  { icon: PencilRuler, title: "Custom Jewelry Requests", description: "Create bespoke jewellery orders and communicate with suppliers directly.", bullets: ["Custom order submission", "In-built chat on each request", "Modify designs before production begins", "Attach reference sketches & images", "Direct manufacturer collaboration"], image: customJewelryImage },
+  { icon: (props: any) => <img src={customIcon} alt="Custom" className={props.className} />, title: "Custom Jewelry Requests", description: "Create bespoke jewellery orders and communicate with suppliers directly.", bullets: ["Custom order submission", "In-built chat on each request", "Modify designs before production begins", "Attach reference sketches & images", "Direct manufacturer collaboration"], image: customJewelryImage },
   { icon: Package, title: "Product Ordering", description: "Order jewellery digitally without manual coordination.", bullets: ["Plain & mount jewellery", "Semi-finished products", "Fully finished jewellery", "Bulk wholesale purchasing", "Instant automated invoicing"], image: productOrderingImage },
   { icon: MonitorSmartphone, title: "Web + Mobile Apps", description: "Manage your business from anywhere.", bullets: ["Desktop web portal", "iOS & Android mobile apps", "Cross-device live sync", "Instant push notifications", "Secure cloud data storage"], image: mobileWebImage },
   { icon: Truck, title: "Real-Time Order Tracking", description: "Stay updated with full tracking transparency.", bullets: ["Order status updates", "Live production stage progress", "Dispatch and delivery tracking", "Verified courier integrations", "Accurate estimated arrival times"], image: realTimeOrderTrackingImage },
@@ -97,7 +98,7 @@ const FeaturesSection = () => {
       id="features"
       style={{ height: `${FEATURES.length * 45}vh` }}
     >
-      <div className="sticky top-0 lg:-top-10 h-screen flex flex-col justify-center overflow-hidden py-6 sm:py-8 lg:py-12 will-change-transform">
+      <div className="sticky top-0 lg:-top-10 h-screen lg:h-[110vh] flex flex-col justify-center overflow-hidden py-6 sm:py-8 lg:py-12 will-change-transform">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           {/* Header */}
           <div className="text-center mb-6 sm:mb-8 md:mb-12 lg:mb-20 shrink-0 will-change-transform">
@@ -146,7 +147,7 @@ const FeaturesSection = () => {
                         <div className={`shrink-0 w-10 h-10 rounded-lg flex items-center justify-center transition-colors duration-200 will-change-transform ${
                           isActive ? "bg-[#00468B] text-white" : "bg-slate-200 text-slate-500 group-hover:bg-[#00468B]/10 group-hover:text-[#00468B]"
                         }`}>
-                          <feature.icon className="w-5 h-5" />
+                          <feature.icon className={`w-5 h-5 ${isActive && index === 0 ? 'brightness-0 invert' : ''}`} />
                         </div>
                         <span className={`font-semibold transition-colors duration-300 ${
                           isActive ? "text-[#00468B] text-lg" : "text-slate-500 text-base group-hover:text-slate-800"

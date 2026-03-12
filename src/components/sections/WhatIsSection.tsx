@@ -1,6 +1,6 @@
 import { useMemo, useRef } from "react";
 import { motion, useScroll, useTransform, MotionValue, useSpring } from "framer-motion";
-import bgImage from "/images/bg3.png";
+import bgImage from "/images/bg.png";
 
 interface WordProps {
   children: string;

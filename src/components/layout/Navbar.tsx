@@ -54,7 +54,7 @@ const Navbar = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.4 }}
-              onClick={() => window.location.href = 'https://www.jewelmounts.com/'}
+              onClick={() => window.location.href = 'https://www.jewelmounts.com/login'}
               className="flex items-center cursor-pointer gap-1 bg-gradient-to-br from-[#00468B] to-[#003360] text-white px-3 py-2 rounded-xl text-sm font-medium hover:from-[#003360] hover:to-[#002240] transition-colors duration-300 group/btn w-full sm:w-auto"
             >
               <span>Start Exploring</span>
