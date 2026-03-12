@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@layer base {
+  html, body {
+    scroll-behavior: smooth;
+  }
+  
+  /* Global performance optimizations */
+  * {
+    box-sizing: border-box;
+  }
+  
+  /* Smooth transforms for better performance */
+  .will-change-transform {
+    will-change: transform;
+  }
+  
+  /* GPU layer promotion for smooth animations */
+  .transform-gpu {
+    transform: translateZ(0);
+  }
+  
+  /* Optimize scrolling */
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+}
