@@ -25,7 +25,7 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
-        isScrolled ? "bg-white/80 backdrop-blur-xl py-4" : "bg-transparent py-4"
+        isScrolled ? "bg-white/70 backdrop-blur-xl py-4" : "bg-transparent py-4"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -44,7 +44,7 @@ const Navbar = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 * i, duration: 0.5 }}
                 className={`text-sm font-medium transition-colors hover:text-[#003360] ${
-                  isScrolled ? "text-slate-600" : "text-white/80 hover:text-white lg:text-slate-600 lg:hover:text-[#003360]"
+                  isScrolled ? "text-black/70" : "text-white/80 hover:text-white lg:text-black/70 lg:hover:text-[#003360]"
                 }`}
               >
                 {link.name}
@@ -69,8 +69,8 @@ const Navbar = () => {
             aria-label="Toggle menu"
           >
             {isOpen ? 
-              <X className={`w-6 h-6 ${isScrolled ? "text-slate-900" : "text-slate-900"}`} /> : 
-              <Menu className={`w-6 h-6 ${isScrolled ? "text-slate-900" : "text-slate-900"}`} />
+              <X className={`w-6 h-6 ${isScrolled ? "text-black" : "text-black"}`} /> : 
+              <Menu className={`w-6 h-6 ${isScrolled ? "text-black" : "text-black"}`} />
             }
           </button>
 
@@ -89,7 +89,7 @@ const Navbar = () => {
                       key={link.name}
                       href={link.href}
                       onClick={() => setIsOpen(false)}
-                      className="block text-slate-600 hover:text-[#00468B] font-medium py-2 transition-colors"
+                      className="block text-black/80 hover:text-[#00468B] py-2 transition-colors"
                     >
                       {link.name}
                     </a>
@@ -97,9 +97,9 @@ const Navbar = () => {
                   <button 
                     onClick={() => {
                       setIsOpen(false);
-                      window.location.href = 'https://www.jewelmounts.com/';
+                      window.location.href = 'https://www.jewelmounts.com/login';
                     }}
-                    className="w-full flex items-center cursor-pointer justify-center gap-2 bg-gradient-to-br from-[#00468B] to-[#003360] text-white px-6 py-3 rounded-xl font-medium hover:from-[#003360] hover:to-[#002240] transition-colors mt-4"
+                    className="w-full flex items-center cursor-pointer justify-center gap-2 bg-gradient-to-br from-[#00468B] to-[#003360] text-white px-6 py-3 rounded-xl font-bold hover:from-[#003360] hover:to-[#002240] transition-colors mt-4"
                   >
                     <span>Start Exploring</span>
                     <ArrowRight className="w-4 h-4" />

@@ -1,6 +1,6 @@
 import { useMemo, useRef } from "react";
 import { motion, useScroll, useTransform, MotionValue, useSpring } from "framer-motion";
-import bgImage from "/images/bg.png";
+import bgImage from "/images/bg.webp";
 
 interface WordProps {
   children: string;
@@ -11,7 +11,7 @@ interface WordProps {
 }
 
 const Word = ({ children, progress, wordRange, isBrand, isLight }: WordProps) => {
-  let baseClass = "text-slate-800 font-medium";
+  let baseClass = "text-black font-medium";
   if (isBrand) {
     baseClass = "font-bold text-[#00468B]";
   } else if (isLight) {

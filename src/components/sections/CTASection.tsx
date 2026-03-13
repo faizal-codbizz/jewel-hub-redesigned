@@ -56,7 +56,7 @@ const PrimaryCTA = () => {
       href="https://calendly.com"
       target="_blank"
       rel="noopener noreferrer"
-      className="w-full sm:w-auto group transition-transform duration-200 ease-out hover:scale-102 active:scale-95 bg-gradient-to-br from-[#00468B] to-[#003366] text-white px-8 md:px-10 py-4 rounded-xl text-lg font-semibold shadow-lg shadow-[#00468B]/20 hover:shadow-xl flex items-center gap-2 justify-center"
+      className="w-full sm:w-auto group cursor-pointer transition-transform duration-200 ease-out hover:scale-102 active:scale-95 bg-gradient-to-br from-[#00468B] to-[#003366] text-white px-8 md:px-10 py-4 rounded-xl text-lg font-semibold shadow-lg shadow-[#00468B]/20 hover:shadow-xl flex items-center gap-2 justify-center"
       aria-label="Request a Demo"
     >
       <span>Request a Demo</span>
@@ -68,9 +68,9 @@ const PrimaryCTA = () => {
 const SecondaryCTA = () => {
   return (
     <button
-      className="w-full sm:w-auto group transition-transform duration-200 ease-out hover:scale-102 active:scale-95 bg-white text-[#00468B] border-2 border-slate-200 px-8 md:px-10 py-4 rounded-xl text-lg font-semibold hover:border-[#00468B] flex items-center gap-2 justify-center"
+      className="w-full sm:w-auto group cursor-pointer transition-transform duration-200 ease-out hover:scale-102 active:scale-95 bg-white text-[#00468B] border-2 border-slate-200 px-8 md:px-10 py-4 rounded-xl text-lg font-semibold hover:border-[#00468B] flex items-center gap-2 justify-center"
       aria-label="Explore the Platform"
-      onClick={() => window.location.href = "https://www.jewelmounts.com/"}
+      onClick={() => window.location.href = "https://www.jewelmounts.com/login"}
     >
       <span>Explore the Platform</span>
       <ArrowRight className="w-5 h-5 transform transition-transform duration-200 group-hover:translate-x-1" />

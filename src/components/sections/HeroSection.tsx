@@ -27,7 +27,7 @@ const HeroSection = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up delay-300">
-              <button onClick={() => window.location.href = 'https://www.jewelmounts.com/'} className="flex cursor-pointer items-center gap-2 bg-[#00468B] text-white px-8 sm:px-12 lg:px-20 py-3 sm:py-4 rounded-xl text-base font-semibold hover:bg-[#003360] transition-colors duration-300 group/btn w-full sm:w-auto justify-center">
+              <button onClick={() => window.location.href = 'https://www.jewelmounts.com/login'} className="flex cursor-pointer items-center gap-2 bg-[#00468B] text-white px-8 sm:px-12 lg:px-20 py-3 sm:py-4 rounded-xl text-base font-semibold hover:bg-[#003360] transition-colors duration-300 group/btn w-full sm:w-auto justify-center">
                 <span>Get Started</span>
                 <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover/btn:translate-x-1" />
               </button>

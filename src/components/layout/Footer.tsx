@@ -10,7 +10,7 @@ const QUICK_LINKS = [
   { label: "Marketplace", href: "#marketplace" },
 ];
 
-const Footer = () => {
+export const Footer = () => {
   return (
     <footer className="bg-slate-50 border-t border-slate-100">
       {/* Main Footer Content */}
@@ -165,11 +165,11 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="col-span-3">
-            <h5 className="font-semibold text-slate-900 mb-4 text-left">Quick Links</h5>
-            <ul className="space-y-3 font-light text-left">
+            <h5 className="font-semibold text-black/90 mb-4 text-left">Quick Links</h5>
+            <ul className="space-y-3 text-left">
               {QUICK_LINKS.map((link) => (
                 <li key={link.href}>
-                  <a href={link.href} className="group flex items-center gap-2 hover:text-[#00468B] text-sm transition-all duration-300">
+                  <a href={link.href} className="group flex items-center gap-2 hover:text-[#003E7D] text-sm transition-all duration-300">
                     <div className="w-2 h-2 rounded-full bg-gradient-to-r from-[#00468B] to-[#0066CC] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     <span className="group-hover:translate-x-1 transition-transform duration-300">{link.label}</span>
                   </a>

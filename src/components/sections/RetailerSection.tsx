@@ -70,7 +70,7 @@ export function RetailerSection() {
                 <p className="text-xl text-slate-700 leading-relaxed font-medium">
                   No developers. No inventory. No hassle.
                 </p>
-                <p className="text-lg text-slate-500 leading-relaxed mt-4 mb-2 max-w-xl mx-auto lg:mx-0">
+                <p className="text-lg text-slate-500 leading-relaxed mt-4 mb-6 max-w-xl mx-auto lg:mx-0">
                   Jewelmounts gives every retailer a fully functional e-commerce jewellery store out of the box.
                 </p>
               </motion.div>
@@ -111,6 +111,27 @@ export function RetailerSection() {
             {/* Soft Background Glow */}
             <div className="absolute -inset-6 bg-gradient-to-tr from-[#00468B]/10 via-transparent to-blue-200/20 blur-2xl rounded-[2.5rem] -z-10 pointer-events-none" />
             
+            <div className="flex justify-end mb-6 relative z-20">
+              <motion.div 
+                initial={{ opacity: 0, y: -20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="inline-flex items-center gap-4 bg-white border border-slate-200/60 rounded-2xl p-2.5 pr-6 shadow-sm hover:shadow-md hover:border-[#00468B]/30 transition-all duration-300"
+              >
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#00468B] to-[#005bb5] flex items-center justify-center shadow-inner relative overflow-hidden">
+                  <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20 mix-blend-overlay"></div>
+                  <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div className="flex flex-col text-left">
+                  <span className="text-sm text-black/60 font-medium leading-tight">Websites like this</span>
+                  <span className="text-base font-bold text-black/90 leading-tight mt-0.5">Ready in 10 minutes</span>
+                </div>
+              </motion.div>
+            </div>
+
             {/* Light Mode macOS Browser Mockup */}
             <div className="bg-white rounded-[1.5rem] overflow-hidden border border-slate-200/60 flex flex-col h-[650px] sm:h-[500px] lg:h-[750px] w-full relative group shadow-2xl shadow-[#00468B]/5">
               
@@ -154,40 +175,6 @@ export function RetailerSection() {
                   sandbox="allow-scripts allow-same-origin allow-popups"
                 />
               </div>
-
-              {/* Ready in 10 Minutes Badge (moved outside iframe container) */}
-              <motion.div
-                initial={{ opacity: 0, y: 20, scale: 0.9 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.7, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                className="absolute bottom-6 left-1/2 md:right-6 md:left-auto -translate-x-1/2 md:translate-x-0 z-20"
-              >
-                <motion.div
-                  animate={{ y: [0, -8, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="bg-[#00468B] px-4 sm:px-5 py-2 sm:py-2.5 rounded-full shadow-2xl border border-white/20 group hover:bg-[#00468B] transition-all duration-500"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="relative">
-                      <div className="w-3 h-3 bg-white rounded-full"></div>
-                      <motion.div 
-                        animate={{ scale: [1, 1.4, 1], opacity: [0.7, 0, 0.7] }}
-                        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                        className="absolute inset-0 w-3 h-3 bg-white rounded-full"
-                      />
-                    </div>
-                    <div className="text-center">
-                      <p className="text-white text-xs leading-tight">
-                        Websites like this can be
-                      </p>
-                      <p className="text-white text-sm font-medium leading-tight">
-                        ready in 10 minutes
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-              </motion.div>
             </div>
             
           </motion.div>

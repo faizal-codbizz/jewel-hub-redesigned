@@ -17,10 +17,10 @@ import manufacturingCustomizationImage from "/images/manufacturing-customization
 import livePricingImage from "/images/live-gold-diamond-pricing.webp"
 import continuousUpdatesImage from "/images/continuous-order-updates.webp"
 import mobileWebImage from "/images/mobile-web.webp"
-import customIcon from "/images/custom.svg"
+import CustomJewelIcon from "../ui/CustomJewelIcon"
 
 const FEATURES = [
-  { icon: (props: any) => <img src={customIcon} alt="Custom" className={props.className} />, title: "Custom Jewelry Requests", description: "Create bespoke jewellery orders and communicate with suppliers directly.", bullets: ["Custom order submission", "In-built chat on each request", "Modify designs before production begins", "Attach reference sketches & images", "Direct manufacturer collaboration"], image: customJewelryImage },
+  { icon: CustomJewelIcon, title: "Custom Jewelry Requests", description: "Create bespoke jewellery orders and communicate with suppliers directly.", bullets: ["Custom order submission", "In-built chat on each request", "Modify designs before production begins", "Attach reference sketches & images", "Direct manufacturer collaboration"], image: customJewelryImage },
   { icon: Package, title: "Product Ordering", description: "Order jewellery digitally without manual coordination.", bullets: ["Plain & mount jewellery", "Semi-finished products", "Fully finished jewellery", "Bulk wholesale purchasing", "Instant automated invoicing"], image: productOrderingImage },
   { icon: MonitorSmartphone, title: "Web + Mobile Apps", description: "Manage your business from anywhere.", bullets: ["Desktop web portal", "iOS & Android mobile apps", "Cross-device live sync", "Instant push notifications", "Secure cloud data storage"], image: mobileWebImage },
   { icon: Truck, title: "Real-Time Order Tracking", description: "Stay updated with full tracking transparency.", bullets: ["Order status updates", "Live production stage progress", "Dispatch and delivery tracking", "Verified courier integrations", "Accurate estimated arrival times"], image: realTimeOrderTrackingImage },
@@ -74,7 +74,7 @@ const FeaturesSection = () => {
   });
 
   const activeFeature = useMemo(() => FEATURES[activeIndex], [activeIndex]);
-  
+
   const handleNavClick = useMemo(() => (index: number) => {
     if (!containerRef.current) return;
     const containerTop = containerRef.current.offsetTop;
@@ -96,7 +96,7 @@ const FeaturesSection = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           {/* Header */}
           <div className="text-center mb-6 sm:mb-8 md:mb-12 lg:mb-20 shrink-0">
-            <motion.h2 
+            <motion.h2
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -126,9 +126,8 @@ const FeaturesSection = () => {
                     <button
                       key={index}
                       onClick={() => handleNavClick(index)}
-                      className={`relative cursor-pointer text-left py-3 md:py-4 px-4 transition-all duration-200 rounded-xl group ${
-                        isActive ? "bg-white shadow-lg shadow-[#00468B]/5" : "hover:bg-slate-100"
-                      }`}
+                      className={`relative cursor-pointer text-left py-3 md:py-4 px-4 transition-all duration-200 rounded-xl group ${isActive ? "bg-white shadow-lg shadow-[#00468B]/5" : "hover:bg-slate-100"
+                        }`}
                     >
                       {isActive && (
                         <motion.div
@@ -138,14 +137,12 @@ const FeaturesSection = () => {
                         />
                       )}
                       <div className="flex items-center gap-4">
-                        <div className={`shrink-0 w-10 h-10 rounded-lg flex items-center justify-center transition-colors duration-200 ${
-                          isActive ? "bg-[#00468B] text-white" : "bg-slate-200 text-slate-500 group-hover:bg-[#00468B]/10 group-hover:text-[#00468B]"
-                        }`}>
-                          <feature.icon className={`w-5 h-5 ${isActive && index === 0 ? 'brightness-0 invert' : ''}`} />
+                        <div className={`shrink-0 w-10 h-10 rounded-lg flex items-center justify-center transition-colors duration-200 ${isActive ? "bg-[#00468B] text-white" : "bg-slate-200 text-slate-500 group-hover:bg-[#00468B]/10 group-hover:text-[#00468B]"
+                          }`}>
+                          <feature.icon className={index === 0 ? "w-7 h-7" : "w-5 h-5"} />
                         </div>
-                        <span className={`font-semibold transition-colors duration-300 ${
-                          isActive ? "text-[#00468B] text-lg" : "text-slate-500 text-base group-hover:text-slate-800"
-                        }`}>
+                        <span className={`font-semibold transition-colors duration-300 ${isActive ? "text-[#00468B] text-lg" : "text-slate-500 text-base group-hover:text-slate-800"
+                          }`}>
                           {feature.title}
                         </span>
                       </div>
@@ -170,7 +167,7 @@ const FeaturesSection = () => {
                   style={{ transformOrigin: "center bottom" }}
                 >
                   <div className="lg:hidden w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl sm:rounded-2xl bg-[#00468B]/5 flex items-center justify-center mb-3 sm:mb-4 shrink-0">
-                    <activeFeature.icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-[#00468B]" />
+                    <activeFeature.icon className={activeIndex === 0 ? "w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 text-[#00468B]" : "w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-[#00468B]"} />
                   </div>
 
                   <h3 className="text-lg sm:text-xl md:text-3xl lg:text-4xl font-bold text-[#00468B] mb-2 sm:mb-3 md:mb-4">
@@ -212,9 +209,8 @@ const FeaturesSection = () => {
             {FEATURES.map((_, idx) => (
               <div
                 key={idx}
-                className={`h-1 sm:h-1.5 rounded-full transition-all duration-200 will-change-transform ${
-                  idx === activeIndex ? "w-6 sm:w-8 bg-[#00468B]" : "w-1.5 sm:w-2 bg-slate-300"
-                }`}
+                className={`h-1 sm:h-1.5 rounded-full transition-all duration-200 will-change-transform ${idx === activeIndex ? "w-6 sm:w-8 bg-[#00468B]" : "w-1.5 sm:w-2 bg-slate-300"
+                  }`}
               />
             ))}
           </div>
